@@ -1,38 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 22:34:59 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/10 23:04:44 by yeonhlee         ###   ########.fr       */
+/*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
+/*   Updated: 2021/03/10 17:40:30 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./libft.h"
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-int			ft_atoi(const char *nptr)
+/*
+**	# include <stddef.h>
+**	# include <stdlib.h>
+**	# include <unistd.h>
+*/
+# include "../libft/libft.h"
+
+# define ERROR_MALLOC	-1
+# define ERROR_ARGUMENT	-2
+
+typedef struct			s_stcak
 {
-	long	i;
-	long	result;
-	int		minus;
+	int			top;
+	int			size;
+	int			*values;
+}						t_stack;
 
-	i = 0;
-	result = 0;
-	minus = 1;
-	while (ft_isspace(nptr[i]))
-		i++;
-	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
-			minus *= -1;
-		i++;
-	}
-	while (nptr[i] != '\0' && '0' <= nptr[i] && nptr[i] <= '9')
-	{
-		result = (result * 10) + (int)(nptr[i] - '0');
-		i++;
-	}
-	return ((int)(result * minus));
-}
+#endif

@@ -5,32 +5,42 @@
 #                                                     +:+ +:+         +:+      #
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/03/10 15:37:48 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/10 16:00:50 by yeonhlee         ###   ########.fr        #
+#    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
+#    Updated: 2021/03/10 15:57:17 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MAKE_LIBFT		=	./libft
-MAKE_CHECKER	=	./checker
-MAKE_PUSH_SWAP	=	./push_swap
+NAME			=	checker
 
-CLEAN			=	make clean -C
-FCLEAN			=	make fclean -C
+CC				=	gcc
+CFLAGS			=	-Wall -Wextra -Werror
+RM				=	rm -f
 
-all:
-					make -C $(MAKE_LIBFT)
-					make -C $(MAKE_CHECKER)
-					make -C $(MAKE_PUSH_SWAP)
+INCLUDES_PATH	=	../includes/
+INCS			=	-I $(INCLUDES_PATH)
+
+FT				=	libft.a
+FTS				=	-L ../libft/ -lft
+SRC_PATH		=	../srcs/
+SRC_FILE		=	main_checker.c
+
+SRCS			=	$(SRC_FILE:%.c=$(SRC_PATH)%.c)
+OBJS			=	$(SRCS:.c=.o)
+
+all:				$(NAME)
+
+$(NAME):			$(FT)
+					$(CC) $(CFLAGS) $(INCS) $(SRCS) $(FTS) \
+						-o $(NAME)
+
+$(FT):
+					$(MAKE) bonus -C ../libft/
 
 clean:
-					$(CLEAN) $(MAKE_LIBFT)
-					$(CLEAN) $(MAKE_CHECKER)
-					$(CLEAN) $(MAKE_PUSH_SWAP)
+					$(RM) $(OBJS)
 
-fclean:	clean
-					$(FCLEAN) $(MAKE_LIBFT)
-					$(FCLEAN) $(MAKE_CHECKER)
-					$(FCLEAN) $(MAKE_PUSH_SWAP)
+fclean:				clean
+					$(RM) $(NAME)
 
 re:					fclean all
 
