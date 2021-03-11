@@ -1,3 +1,6 @@
 [submodule "libs/libft"]
 	path = libs/libft
 	url = https://github.com/CUAGAIN-95/libft.git
+[submodule "libs/gnl"]
+	path = libs/gnl
+	url = https://github.com/CUAGAIN-95/gnl.git
