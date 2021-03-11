@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/11 18:53:38 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/11 19:21:28 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 **	# include <unistd.h>
 */
 # include "../libs/libft/libft.h"
+# include "../libs/gnl/get_next_line.h"
 
 # define ERROR_MALLOC	-1
 # define ERROR_ARGUMENT	-2

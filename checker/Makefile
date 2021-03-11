@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/11 18:53:10 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/03/11 19:58:22 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,8 @@ RM				=	rm -f
 INCLUDES_PATH	=	../includes/
 INCS			=	-I $(INCLUDES_PATH)
 
+GNL				=	libgnl.a
+GNLS			=	-L ../libs/gnl/ -lgnl
 FT				=	libft.a
 FTS				=	-L ../libs/libft/ -lft
 SRC_PATH		=	../srcs/
@@ -29,13 +31,16 @@ OBJS			=	$(SRCS:.c=.o)
 
 all:				$(NAME)
 
-$(NAME):			$(FT)
-					$(CC) $(CFLAGS) $(INCS) $(SRCS) $(FTS) \
+$(NAME):			$(FT) $(GNL)
+					$(CC) $(CFLAGS) $(INCS) $(SRCS) $(FTS) $(GNLS)\
 						-o $(NAME)
 
 $(FT):
 					$(MAKE) bonus -C ../libs/libft/
 
+$(GNL):
+					$(MAKE) -C ../libs/gnl/
+					
 clean:
 					$(RM) $(OBJS)
 
