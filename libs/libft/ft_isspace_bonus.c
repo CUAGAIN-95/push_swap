@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isspace_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/11 18:53:38 by yeonhlee         ###   ########.fr       */
+/*   Created: 2020/03/01 21:40:37 by yeonhlee          #+#    #+#             */
+/*   Updated: 2021/03/11 13:15:31 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-
-/*
-**	# include <stddef.h>
-**	# include <stdlib.h>
-**	# include <unistd.h>
-*/
-# include "../libs/libft/libft.h"
-
-# define ERROR_MALLOC	-1
-# define ERROR_ARGUMENT	-2
-
-typedef struct			s_stcak
+int		ft_isspace(char c)
 {
-	int			top;
-	int			size;
-	int			*values;
-}						t_stack;
-
-#endif
+	if ((9 <= c && c <= 13) || c == 32)
+		return (1);
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:48:58 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/10 23:05:36 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/11 18:49:38 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,25 @@ int		ft_error(void)
 	return (-1);
 }
 
+int		check_argument(char *val)
+{
+	int		i;
+
+	i = 0;
+	while (val[i] != '\0')
+	{
+		if (!ft_isspace(val[i]) && !ft_isdigit(val[i]) && !ft_issign(val[i]))
+			return (0);
+		if (ft_issign(val[i]) && i > 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int		init_stack(int argc, char **argv, t_stack *stack)
 {
 	int		ind;
-	int		value;
 
 	stack->top = -1;
 	stack->size = argc - 1;
@@ -42,11 +57,9 @@ int		init_stack(int argc, char **argv, t_stack *stack)
 int		main(int argc, char **argv)
 {
 	t_stack		stack_a;
-	t_stack		stack_b;
-	int			error;
+	//t_stack		stack_b;
 
 	if (init_stack(argc, argv, &stack_a) < 0)
 		return (ft_error());
-	
 	return (0);
 }

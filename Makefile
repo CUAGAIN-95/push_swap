@@ -6,11 +6,12 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 15:37:48 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/10 16:00:50 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/03/11 18:55:16 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MAKE_LIBFT		=	./libft
+MAKE_LIBFT		=	./libs/libft
+MAKE_GNL		=
 MAKE_CHECKER	=	./checker
 MAKE_PUSH_SWAP	=	./push_swap
 

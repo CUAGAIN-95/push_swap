@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/10 15:57:27 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/03/11 18:52:59 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ INCLUDES_PATH	=	../includes/
 INCS			=	-I $(INCLUDES_PATH)
 
 FT				=	libft.a
-FTS				=	-L ../libft/ -lft
+FTS				=	-L ../libs/libft/ -lft
 SRC_PATH		=	../srcs/
 SRC_FILE		=	main_push_swap.c
 
@@ -34,7 +34,7 @@ $(NAME):			$(FT)
 						-o $(NAME)
 
 $(FT):
-					$(MAKE) bonus -C ../libft/
+					$(MAKE) bonus -C ../libs/libft/
 
 clean:
 					$(RM) $(OBJS)

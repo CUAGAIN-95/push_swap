@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 03:23:17 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/10 15:44:33 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/11 13:16:55 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_list
 }				t_list;
 
 int				ft_isspace(char c);
+int				ft_issign(int c);
 
 int				ft_atoi(const char *nptr);
 void			ft_bzero(void *str, size_t n);
