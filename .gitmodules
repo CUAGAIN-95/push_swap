@@ -1,0 +1,3 @@
+[submodule "libs/libft1"]
+	path = libs/libft1
+	url = https://github.com/CUAGAIN-95/libft.git

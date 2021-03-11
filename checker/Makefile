@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/11 19:58:22 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/03/12 04:04:02 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,10 @@ GNLS			=	-L ../libs/gnl/ -lgnl
 FT				=	libft.a
 FTS				=	-L ../libs/libft/ -lft
 SRC_PATH		=	../srcs/
-SRC_FILE		=	main_checker.c
+SRC_FILE		=	main_checker.c \
+					error.c \
+					init_stack.c \
+					util.c
 
 SRCS			=	$(SRC_FILE:%.c=$(SRC_PATH)%.c)
 OBJS			=	$(SRCS:.c=.o)
