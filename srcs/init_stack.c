@@ -6,37 +6,53 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:59:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/12 04:00:52 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/14 11:21:38 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int		init_stack_a(int argc, char **argv, t_stack *stack)
+#include "stdio.h"//////
+t_stack		*init_stack_a(int argc, char **argv)
 {
-	int		ind;
+	t_stack	*stack;
+	t_list	*temp;
+	t_list *curr;
+	int		content;
 
-	stack->top = -1;
-	stack->size = argc - 1;
-	if (!(stack->values = ft_calloc(stack->size, sizeof(int))))
-		return (ERROR_MALLOC);
-	ind = 0;
-	while (ind < stack->size)
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	stack->top = 0;
+	stack->head = (t_list *)malloc(sizeof(t_list));
+	while (stack->top < argc - 1)
 	{
-		if (!check_argument(argv[ind + 1]))
-			return (ERROR_ARGUMENT);
-		(stack->values)[ind] = ft_atoi(argv[ind + 1]);
-		ind++;
+		content = ft_atoi(argv[stack->top + 1]);
+		printf("content : %d stack->top : %d\n", content, stack->top);			/////
+		if (stack->top == 0)
+		{
+			stack->lst = ft_lstnew(&content);
+			stack->head->next = stack->lst;
+		}
+		else
+		{
+			temp = ft_lstnew(&content);
+			ft_lstadd_front(&(stack->lst), temp);
+		}
+		printf("lst->content : %d\n", *(int *)(stack->lst->content));
+		printf(">size: %d<\n", ft_lstsize(stack->lst));
 		stack->top++;
 	}
-	return (1);
+	printf("print : lst\n");
+	curr = stack->head->next;
+	while (curr)
+	{
+		printf("%d\n", *(int *)(curr->content));
+		printf(">%d<\n", ft_lstsize(curr));
+		curr = curr->next;
+	}
+	return(stack);
 }
 
-int		init_stack_b(t_stack *stack, int size)
+t_stack		*init_stack_b(t_stack *stack)
 {
-	stack->top = -1;
-	stack->size = size;
-	if (!(stack->values = ft_calloc(size, sizeof(int))))
-		return (ERROR_MALLOC);
-	return (1);
+	stack->top = 0;
+	return (stack);
 }

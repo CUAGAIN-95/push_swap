@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/12 04:03:04 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/14 11:02:40 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@
 typedef struct			s_stcak
 {
 	int			top;
-	int			size;
-	int			*values;
+	t_list		*head;
+	t_list		*lst;
 }						t_stack;
 
 /*
@@ -57,8 +57,8 @@ int						ft_error(void);
 ** ==========================================================================
 */
 
-int						init_stack_a(int argc, char **argv, t_stack *stack);
-int						init_stack_b(t_stack *stack, int size);
+t_stack					*init_stack_a(int argc, char **argv);
+t_stack					*init_stack_b(t_stack *stack);
 
 
 /*
