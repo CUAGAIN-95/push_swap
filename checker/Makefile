@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/12 04:04:02 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/03/14 16:35:41 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,8 @@ SRC_PATH		=	../srcs/
 SRC_FILE		=	main_checker.c \
 					error.c \
 					init_stack.c \
-					util.c
+					util.c \
+					operate1.c operate2.c
 
 SRCS			=	$(SRC_FILE:%.c=$(SRC_PATH)%.c)
 OBJS			=	$(SRCS:.c=.o)

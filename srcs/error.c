@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:50:40 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/12 04:10:35 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/14 16:47:24 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 int		ft_error(void)
 {
-	ft_putstr_fd("ERROR", 1);
+	ft_putstr_fd("Error", 1);
 	return (-1);
 }

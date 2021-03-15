@@ -6,53 +6,45 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:59:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/14 11:21:38 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/14 16:43:24 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stdio.h"//////
+
 t_stack		*init_stack_a(int argc, char **argv)
 {
 	t_stack	*stack;
-	t_list	*temp;
-	t_list *curr;
-	int		content;
+	t_list	*new_node;
+	int		*content;
+	int		i;
 
 	stack = (t_stack *)malloc(sizeof(t_stack));
-	stack->top = 0;
-	stack->head = (t_list *)malloc(sizeof(t_list));
-	while (stack->top < argc - 1)
+	stack->head = NULL;
+	i = 1;
+	while (i < argc)
 	{
-		content = ft_atoi(argv[stack->top + 1]);
-		printf("content : %d stack->top : %d\n", content, stack->top);			/////
-		if (stack->top == 0)
+		content = (int *)malloc(sizeof(int));
+		*content = ft_atoi(argv[i]);
+		new_node = ft_lstnew(content);
+		if (!(stack->head))
 		{
-			stack->lst = ft_lstnew(&content);
-			stack->head->next = stack->lst;
+			stack->head = new_node;
+			stack->top = new_node;
 		}
 		else
-		{
-			temp = ft_lstnew(&content);
-			ft_lstadd_front(&(stack->lst), temp);
-		}
-		printf("lst->content : %d\n", *(int *)(stack->lst->content));
-		printf(">size: %d<\n", ft_lstsize(stack->lst));
-		stack->top++;
+			ft_lstadd_front(&(stack->head), new_node);
+		++i;
 	}
-	printf("print : lst\n");
-	curr = stack->head->next;
-	while (curr)
-	{
-		printf("%d\n", *(int *)(curr->content));
-		printf(">%d<\n", ft_lstsize(curr));
-		curr = curr->next;
-	}
-	return(stack);
+	return (stack);
 }
 
-t_stack		*init_stack_b(t_stack *stack)
+t_stack		*init_stack_b(void)
 {
-	stack->top = 0;
+	t_stack	*stack;
+
+	stack = (t_stack *)malloc(sizeof(t_stack));
+	stack->top = NULL;
+	stack->head = NULL;
 	return (stack);
 }

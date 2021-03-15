@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/14 11:02:40 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/14 16:46:20 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 */
 # include "../libs/libft/libft.h"
 # include "../libs/gnl/get_next_line.h"
+
+# include <stdio.h>				/////
 
 /*
 ** ==========================================================================
@@ -38,9 +40,8 @@
 
 typedef struct			s_stcak
 {
-	int			top;
+	t_list		*top;
 	t_list		*head;
-	t_list		*lst;
 }						t_stack;
 
 /*
@@ -58,7 +59,7 @@ int						ft_error(void);
 */
 
 t_stack					*init_stack_a(int argc, char **argv);
-t_stack					*init_stack_b(t_stack *stack);
+t_stack					*init_stack_b(void);
 
 
 /*
@@ -68,5 +69,23 @@ t_stack					*init_stack_b(t_stack *stack);
 */
 
 int						check_argument(char *val);
+
+
+/*
+** ==========================================================================
+**	operate.c
+** ==========================================================================
+*/
+
+void	operate_sab(t_stack *stack);
+void	operate_ss(t_stack *stack_a, t_stack *stack_b);
+
+void	operate_pab(t_stack *stack_src, t_stack *stack_dest);
+
+void	operate_rab(t_stack *stack);
+void	operate_rr(t_stack *stack_a, t_stack *stack_b);
+
+void	operate_rrab(t_stack *stack);
+void	operate_rrr(t_stack *stack_a, t_stack *stack_b);
 
 #endif
