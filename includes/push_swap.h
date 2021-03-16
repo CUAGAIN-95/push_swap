@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/14 16:46:20 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/16 16:33:17 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,21 @@
 
 typedef struct			s_stcak
 {
-	t_list		*top;
-	t_list		*head;
+	int		size;
+	int		top;
+	int		*arr;
+	
+	
 }						t_stack;
 
 /*
 ** ==========================================================================
-**	error.c
+**	ft_print.c
 ** ==========================================================================
 */
 
-int						ft_error(void);
+int						ft_print_error(void);
+void					ft_print_result(int result);
 
 /*
 ** ==========================================================================
@@ -59,7 +63,7 @@ int						ft_error(void);
 */
 
 t_stack					*init_stack_a(int argc, char **argv);
-t_stack					*init_stack_b(void);
+t_stack					*init_stack_b(int argc);
 
 
 /*
@@ -69,6 +73,7 @@ t_stack					*init_stack_b(void);
 */
 
 int						check_argument(char *val);
+int						ft_checker(t_stack *stack);
 
 
 /*
@@ -88,4 +93,6 @@ void	operate_rr(t_stack *stack_a, t_stack *stack_b);
 void	operate_rrab(t_stack *stack);
 void	operate_rrr(t_stack *stack_a, t_stack *stack_b);
 
+
+void	print_stack(t_stack *stack_a, t_stack *stack_b);	//test
 #endif

@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/14 16:35:41 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/03/16 16:29:03 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,10 +25,11 @@ FT				=	libft.a
 FTS				=	-L ../libs/libft/ -lft
 SRC_PATH		=	../srcs/
 SRC_FILE		=	main_checker.c \
-					error.c \
+					ft_print.c \
 					init_stack.c \
 					util.c \
-					operate1.c operate2.c
+					operate1.c operate2.c \
+					test_util.c #test용
 
 SRCS			=	$(SRC_FILE:%.c=$(SRC_PATH)%.c)
 OBJS			=	$(SRCS:.c=.o)

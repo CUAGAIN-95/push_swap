@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 01:18:11 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/15 07:10:14 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/16 16:00:09 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,55 +14,27 @@
 
 void	operate_sab(t_stack *stack)
 {
-	t_list	*lst_2;
-	t_list	*lst_3;
+	int		temp;
 
-	if (stack->head == NULL || ft_lstsize(stack->head) == 1)
+	if (stack->top == -1 || stack->top == 0)
 		return ;
-	lst_2 = stack->head;
-	while((lst_2->next != NULL) && (lst_2->next != stack->top))
-		lst_2 = lst_2->next;
-	lst_3 = stack->head;
-	while((lst_3->next != NULL) && (lst_3->next != lst_2))
-		lst_3 = lst_3->next;
-	lst_3->next = stack->top;
-	stack->top->next = lst_2;
-	stack->top = lst_2;
-	lst_2->next = NULL;
+	temp = stack->arr[stack->top];
+	stack->arr[stack->top] = stack->arr[stack->top - 1];
+	stack->arr[stack->top - 1] = temp;
 }
 
 void	operate_ss(t_stack *stack_a, t_stack *stack_b)
 {
-	if (stack_a->head == NULL || ft_lstsize(stack_a->head) == 1)
-		return ;
-	if (stack_b->head == NULL || ft_lstsize(stack_b->head) == 1)
-		return ;
 	operate_sab(stack_a);
-	operate_sab(stack_a);
+	operate_sab(stack_b);
 }
 
 void	operate_pab(t_stack *stack_src, t_stack *stack_dest)
 {
-	t_list	*lst_2;
-
-	if (stack_src->head == NULL)
+	if (stack_src->top == -1)
 		return ;
-	lst_2 = stack_src->head;
-	while((lst_2->next != NULL) && (lst_2->next != stack_src->top))
-		lst_2 = lst_2->next;
-	lst_2->next = NULL;
-	if (stack_dest->head == NULL)
-	{
-		stack_dest->head = stack_src->top;
-		stack_dest->top = stack_src->top;
-	}
-	else
-	{
-		stack_dest->top->next = stack_src->top;
-		stack_dest->top = stack_src->top;
-	}
-	if (stack_src->top == lst_2)
-		stack_src->top = NULL;
-	else
-		stack_src->top = lst_2;
+	stack_dest->arr[stack_dest->top + 1] = stack_src->arr[stack_src->top];
+	stack_src->arr[stack_src->top] = 0;
+	stack_src->top--;
+	stack_dest->top++;
 }
