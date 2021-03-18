@@ -6,14 +6,14 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:48:58 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/18 17:30:10 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/19 05:09:04 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // ---------------------------------------------------------
-void	parse_operation(char *line, t_stack *stack_a, t_stack *stack_b)
+int		parse_operation(char *line, t_stack *stack_a, t_stack *stack_b)
 {
 	if (!(ft_strncmp(line, "sa", ft_strlen(line) + 1)))
 		operate_sab(stack_a);
@@ -37,6 +37,12 @@ void	parse_operation(char *line, t_stack *stack_a, t_stack *stack_b)
 		operate_rrab(stack_b);
 	else if (!(ft_strncmp(line, "rrr", ft_strlen(line) + 1)))
 		operate_rrr(stack_a, stack_b);
+	// else
+	// {
+	// 	ft_free_stack_ab(stack_a, stack_b);
+	// 	return (0);
+	// }
+	return (1);
 }
 
 // ---------------------------------------------------------
@@ -49,7 +55,7 @@ int		main(int argc, char **argv)
 	int			r;
 
 	if (argc == 1)
-		return (ft_print_error());
+		return (0);
 	stack_a = (t_stack *)malloc(sizeof(t_stack));
 	if (!init_stack_a(stack_a, argc, argv))
 		return (ft_print_error());
@@ -62,7 +68,8 @@ int		main(int argc, char **argv)
 	{
 		if ((r = get_next_line(1, &line)) == -1)
 			break;
-		parse_operation(line, stack_a, stack_b);
+		if (!parse_operation(line, stack_a, stack_b))
+			return (ft_print_error());
 		print_stack(stack_a, stack_b);			// print test
 		free(line);
 		line = NULL;
@@ -70,8 +77,8 @@ int		main(int argc, char **argv)
 			break;
 	}
 	ft_print_result(ft_checker(stack_a));
-	ft_free_util(stack_a, stack_b);
-	
+	ft_free_stack_ab(stack_a, stack_b);
+
 	while (1)									// leaks test
 		;
 	

@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:59:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/18 17:29:08 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/19 05:04:44 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,18 @@ int		init_argc2(t_stack *stack, int argc,char **argv)
 
 int		init_stack_a(t_stack *stack, int argc, char **argv)
 {	
+	int		error;
+
+	error = 1;
 	if (argc == 2)
-	{
-		if (!init_argc1(stack, argv))
-			return (0);
-	}
+		error = init_argc1(stack, argv);
 	else
+		error = init_argc2(stack, argc, argv);
+	error = check_duplicate(stack);
+	if (!error)
 	{
-		if(!init_argc2(stack, argc, argv))
-			return (0);
+		ft_free_stack(stack);
+		return (0);
 	}
 	return (1);
 }

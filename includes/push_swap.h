@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/18 17:24:00 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/19 05:00:05 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,21 @@ void					ft_print_result(int result);
 ** ==========================================================================
 */
 
-int		init_argc1(t_stack *stack, char **argv);
-int		init_argc2(t_stack *stack, int argc,char **argv);
+int						init_argc1(t_stack *stack, char **argv);
+int						init_argc2(t_stack *stack, int argc,char **argv);
 int						init_stack_a(t_stack *stack, int argc, char **argv);
 t_stack					*init_stack_b(int argc);
 
+
+/*
+** ==========================================================================
+**	ft_check.c
+** ==========================================================================
+*/
+
+int						check_argument(char *val);
+int						check_int(char *val);
+int						check_duplicate(t_stack *stack);
 
 /*
 ** ==========================================================================
@@ -74,9 +84,8 @@ t_stack					*init_stack_b(int argc);
 
 int						count_size(char *s, char c);
 int						ft_checker(t_stack *stack);
-void					ft_free_util(t_stack *stack_a, t_stack *stack_b);
-int						check_argument(char *val);
-int						check_int(char *val);
+void					ft_free_stack(t_stack *stack);
+void					ft_free_stack_ab(t_stack *stack_a, t_stack *stack_b);
 
 /*
 ** ==========================================================================

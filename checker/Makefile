@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/16 16:29:03 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/03/19 04:36:52 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC_PATH		=	../srcs/
 SRC_FILE		=	main_checker.c \
 					ft_print.c \
 					init_stack.c \
+					ft_check.c \
 					util.c \
 					operate1.c operate2.c \
 					test_util.c #test용
