@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:48:58 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/16 16:33:04 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/18 17:30:10 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,23 +50,30 @@ int		main(int argc, char **argv)
 
 	if (argc == 1)
 		return (ft_print_error());
-	stack_a = init_stack_a(argc, argv);
+	stack_a = (t_stack *)malloc(sizeof(t_stack));
+	if (!init_stack_a(stack_a, argc, argv))
+		return (ft_print_error());
 	stack_b = init_stack_b(argc);
 	
-	printf("\nsize : %d\n", stack_a->size);		////
-	print_stack(stack_a, stack_b);				////
+	printf("\nsize : %d\n", stack_a->size);		// print test
+	print_stack(stack_a, stack_b);				// print test
 	
 	while (1)
 	{
 		if ((r = get_next_line(1, &line)) == -1)
 			break;
 		parse_operation(line, stack_a, stack_b);
-		print_stack(stack_a, stack_b);			////
+		print_stack(stack_a, stack_b);			// print test
 		free(line);
 		line = NULL;
 		if (r == 0)
 			break;
 	}
 	ft_print_result(ft_checker(stack_a));
+	ft_free_util(stack_a, stack_b);
+	
+	while (1)									// leaks test
+		;
+	
 	return (0);
 }

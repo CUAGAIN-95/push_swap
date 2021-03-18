@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/16 16:33:17 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/18 17:24:00 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ typedef struct			s_stcak
 	int		size;
 	int		top;
 	int		*arr;
-	
-	
 }						t_stack;
 
 /*
@@ -62,7 +60,9 @@ void					ft_print_result(int result);
 ** ==========================================================================
 */
 
-t_stack					*init_stack_a(int argc, char **argv);
+int		init_argc1(t_stack *stack, char **argv);
+int		init_argc2(t_stack *stack, int argc,char **argv);
+int						init_stack_a(t_stack *stack, int argc, char **argv);
 t_stack					*init_stack_b(int argc);
 
 
@@ -72,9 +72,11 @@ t_stack					*init_stack_b(int argc);
 ** ==========================================================================
 */
 
-int						check_argument(char *val);
+int						count_size(char *s, char c);
 int						ft_checker(t_stack *stack);
-
+void					ft_free_util(t_stack *stack_a, t_stack *stack_b);
+int						check_argument(char *val);
+int						check_int(char *val);
 
 /*
 ** ==========================================================================
