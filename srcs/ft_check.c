@@ -6,30 +6,40 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 04:35:06 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/19 04:42:52 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/20 15:43:06 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int		check_int(char *val)
+int			ft_atoi_checkint(char *nptr, t_stack *stack)
 {
-	int		i;
+	long	i;
+	long	result;
+	int		minus;
 
 	i = 0;
-	while (val[i] != '\0' && ft_issign(val[i]))
+	result = 0;
+	minus = 1;
+	stack->check_int = 1;
+	while (ft_isspace(nptr[i]))
 		i++;
-	if (ft_strlen(&val[i]) > 10)
-		return (0);
-	else if (ft_strlen(&val[i]) == 10 && val[i] != '2' && val[i] != '1')
-		return (0);
-	else if (ft_atoi(&val[i]) == -2147483648)
-		return (1);
-	else if (ft_atoi(&val[i]) < 0)
-		return (0);
-	return (1);
+	if (nptr[i] == '-' || nptr[i] == '+')
+	{
+		if (nptr[i] == '-')
+			minus *= -1;
+		i++;
+	}
+	while (nptr[i] != '\0' && '0' <= nptr[i] && nptr[i] <= '9')
+	{
+		result = (result * 10) + (int)(nptr[i] - '0');
+		i++;
+	}
+	if (result * minus > 2147483647 || result * minus < -2147483648)
+		stack->check_int = 0;
+	return ((int)(result * minus));
 }
+
 
 int		check_argument(char *val)
 {
@@ -66,6 +76,25 @@ int		check_duplicate(t_stack *stack)
 				return (0);
 			j++;
 		}
+		i++;
+	}
+	return (1);
+}
+
+int		ft_checker(t_stack *stack)
+{
+	int		i;
+	int		temp;
+
+	if (stack->size != stack->top + 1)
+		return (0);
+	i = 0;
+	temp = stack->arr[i];
+	while (i < stack->top)
+	{
+		if (temp < stack->arr[i + 1])
+			return (0);
+		temp = stack->arr[i + 1];
 		i++;
 	}
 	return (1);

@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:59:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/19 05:04:44 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/20 15:42:34 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int		init_argc1(t_stack *stack, char **argv)
 	{
 		if (!check_argument(temp[stack->size - i - 1]))
 			return (0);
-		if (!check_int(temp[stack->size - i - 1]))
+		(stack->arr)[i] = ft_atoi_checkint(argv[stack->size - i], stack);
+		if (!(stack->check_int))
 			return (0);
-		(stack->arr)[i] = ft_atoi(temp[stack->size - i - 1]);
 		i++;
 		stack->top++;
 	}
@@ -50,9 +50,9 @@ int		init_argc2(t_stack *stack, int argc,char **argv)
 	{
 		if (!check_argument(argv[stack->size - i]))
 			return (0);
-		if (!check_int(argv[stack->size - i]))
+		(stack->arr)[i] = ft_atoi_checkint(argv[stack->size - i], stack);
+		if (!(stack->check_int))
 			return (0);
-		(stack->arr)[i] = ft_atoi(argv[stack->size - i]);
 		i++;
 		stack->top++;
 	}
@@ -68,6 +68,11 @@ int		init_stack_a(t_stack *stack, int argc, char **argv)
 		error = init_argc1(stack, argv);
 	else
 		error = init_argc2(stack, argc, argv);
+	if (!error)
+	{
+		ft_free_stack(stack);
+		return (0);
+	}
 	error = check_duplicate(stack);
 	if (!error)
 	{
@@ -77,20 +82,20 @@ int		init_stack_a(t_stack *stack, int argc, char **argv)
 	return (1);
 }
 
-t_stack		*init_stack_b(int argc)
+t_stack		*init_stack_b(t_stack *stack_a)
 {
-	t_stack	*stack;
+	t_stack	*stack_b;
 	int		i;
 
-	stack = (t_stack *)malloc(sizeof(t_stack));
-	stack->size = argc - 1;
-	stack->arr = (int *)malloc(sizeof(int) * (stack->size));
-	stack->top = -1;
+	stack_b = (t_stack *)malloc(sizeof(t_stack));
+	stack_b->size = stack_a->size;
+	stack_b->arr = (int *)malloc(sizeof(int) * (stack_b->size));
+	stack_b->top = -1;
 	i = 0;
-	while (i < stack->size)
+	while (i < stack_b->size)
 	{
-		(stack->arr)[i] = 0;
+		(stack_b->arr)[i] = 0;
 		i++;
 	}
-	return (stack);
+	return (stack_b);
 }
