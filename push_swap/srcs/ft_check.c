@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 04:35:06 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/20 15:43:06 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/23 00:00:04 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,21 +81,38 @@ int		check_duplicate(t_stack *stack)
 	return (1);
 }
 
+int		ft_semi_checker(t_stack *stack)
+{
+	int		i;
+	int		temp;
+
+	i = 0;
+	temp = stack->arr[i];
+	while (i < stack->top)
+	{
+		if (temp < stack->arr[i + 1])
+			return (KO);
+		temp = stack->arr[i + 1];
+		i++;
+	}
+	return (OK);
+}
+
 int		ft_checker(t_stack *stack)
 {
 	int		i;
 	int		temp;
 
 	if (stack->size != stack->top + 1)
-		return (0);
+		return (KO);
 	i = 0;
 	temp = stack->arr[i];
 	while (i < stack->top)
 	{
 		if (temp < stack->arr[i + 1])
-			return (0);
+			return (KO);
 		temp = stack->arr[i + 1];
 		i++;
 	}
-	return (1);
+	return (OK);
 }

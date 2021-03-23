@@ -6,11 +6,11 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 01:18:14 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/20 15:38:52 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/21 20:17:58 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	operate_rab(t_stack *stack)
 {

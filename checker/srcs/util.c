@@ -6,11 +6,11 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 04:01:46 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/20 15:44:46 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/21 20:18:06 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+# include "checker.h"
 
 int			count_size(char *s, char c)
 {

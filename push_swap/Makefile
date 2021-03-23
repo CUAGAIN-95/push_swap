@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/20 19:15:34 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/03/23 04:10:43 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,29 +19,35 @@ RM				=	rm -f
 INCLUDES_PATH	=	../includes/
 INCS			=	-I $(INCLUDES_PATH)
 
+# GNL				=	libgnl.a
+# GNLS			=	-L ../libs/gnl/ -lgnl
 FT				=	libft.a
 FTS				=	-L ../libs/libft/ -lft
-SRC_PATH		=	../srcs/
+SRC_PATH		=	./srcs/
 SRC_FILE		=	main_push_swap.c \
-					ft_print.c \
 					init_stack.c \
+					ft_print.c \
 					ft_check.c \
-					util.c \
+					ft_free.c \
+					util1.c util2.c \
 					operate1.c operate2.c \
-					sort_case.c
+					sort_case.c \
+					test_util.c # test
 
 SRCS			=	$(SRC_FILE:%.c=$(SRC_PATH)%.c)
 OBJS			=	$(SRCS:.c=.o)
 
 all:				$(NAME)
 
-$(NAME):			$(FT)
+$(NAME):			$(FT) #$(GNL)
 					$(CC) $(CFLAGS) $(INCS) $(SRCS) $(FTS) \
 						-o $(NAME)
 
 $(FT):
 					$(MAKE) bonus -C ../libs/libft/
 
+# $(GNL):
+# 					$(MAKE) -C ../libs/gnl/
 clean:
 					$(RM) $(OBJS)
 

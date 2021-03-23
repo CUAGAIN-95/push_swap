@@ -6,11 +6,11 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:59:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/20 15:42:34 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/22 19:12:24 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int		init_argc1(t_stack *stack, char **argv)
 {
@@ -28,7 +28,7 @@ int		init_argc1(t_stack *stack, char **argv)
 	{
 		if (!check_argument(temp[stack->size - i - 1]))
 			return (0);
-		(stack->arr)[i] = ft_atoi_checkint(argv[stack->size - i], stack);
+		(stack->arr)[i] = ft_atoi_checkint(temp[stack->size - i - 1], stack);
 		if (!(stack->check_int))
 			return (0);
 		i++;
@@ -71,15 +71,15 @@ int		init_stack_a(t_stack *stack, int argc, char **argv)
 	if (!error)
 	{
 		ft_free_stack(stack);
-		return (0);
+		return (error);
 	}
 	error = check_duplicate(stack);
 	if (!error)
 	{
 		ft_free_stack(stack);
-		return (0);
+		return (error);
 	}
-	return (1);
+	return (error);
 }
 
 t_stack		*init_stack_b(t_stack *stack_a)

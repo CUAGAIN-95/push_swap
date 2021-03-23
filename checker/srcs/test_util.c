@@ -6,11 +6,11 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 14:50:00 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/16 14:55:55 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/21 20:18:02 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+# include "checker.h"
 
 void	print_stack(t_stack *stack_a, t_stack *stack_b)
 {
