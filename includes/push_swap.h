@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/23 23:16:18 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/25 23:00:39 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,24 @@
 ** ==========================================================================
 */
 
+typedef struct		s_sort
+{
+	int		*arr;
+	int		arr_size;
+	int		chunk_size;
+	int		chunk_count;
+	int		index_count;
+}					t_sort;
+
+
 typedef struct		s_stack
 {
 	int		ab;
 	int		size;
 	int		top;
 	int		*arr;
-	// int		*sort_arr;
 	int		max;
 	int		min;
-	// int		mid;
 	int		up_cost;
 	int		down_cost;
 	int		check_int;
@@ -65,6 +73,7 @@ typedef struct		s_stack
 
 int					ft_print_error(void);
 void				ft_print_result(int result, int count);
+void				ft_free_sort(t_sort *sort);
 
 /*
 ** ==========================================================================
@@ -106,10 +115,12 @@ void				ft_free_stack_ab(t_stack *stack_a, t_stack *stack_b);
 
 void				max_int(t_stack *stack);
 void				min_int(t_stack *stack);
-void				pab_cost(t_stack *stack_src, t_stack *stack_dest);
 int					count_size(char *s, char c);
+int					ft_sort_arr(t_stack *stack, t_sort *sort);
 
-void				sort5_B_to_A(t_stack *stack_src, t_stack *stack_dest);
+int					ft_cost(t_stack *stack, int index);
+int					ft_check_cost(t_stack *stack, int start, int end);
+int					ft_check_chunk(t_stack *stack, t_sort *sort, int index);
 
 /*
 ** ==========================================================================
@@ -136,7 +147,26 @@ void				sort_case_2(t_stack *stack_a);
 void				sort_case_3(t_stack *stack_a);
 void				sort_case_5(t_stack *stack_a, t_stack *stack_b);
 void				sort_case_100(t_stack *stack_a, t_stack *stack_b);
-void				sort_case_500(t_stack *stack_a, t_stack *stack_b);
+int					sort_case_500(t_stack *stack_a, t_stack *stack_b);
+
+/*
+** ==========================================================================
+**	sort_case_5.c
+** ==========================================================================
+*/
+
+void				pab_cost(t_stack *stack_src, t_stack *stack_dest);
+void				sort5_B_to_A(t_stack *stack_src, t_stack *stack_dest);
+
+/*
+** ==========================================================================
+**	sort_case_500.c
+** ==========================================================================
+*/
+
+void				ft_AtoB(t_stack *stack_a, t_stack *stack_b, int target);
+void				ft_push_swap(t_stack *stack_a, t_stack *stack_b, \
+									t_sort *sort);
 
 void	print_stack(t_stack *stack_a, t_stack *stack_b);	//test
 #endif

@@ -6,7 +6,7 @@
 #    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/23 04:10:43 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/03/25 19:32:51 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRC_FILE		=	main_push_swap.c \
 					util1.c util2.c \
 					operate1.c operate2.c \
 					sort_case.c \
+					sort_case_5.c sort_case_500.c\
 					test_util.c # test
 
 SRCS			=	$(SRC_FILE:%.c=$(SRC_PATH)%.c)

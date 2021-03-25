@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:59:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/23 21:51:05 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/25 23:01:22 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,25 +18,25 @@ int		init_argc1(t_stack *stack, char **argv)
 	int		i;
 
 	if (!(temp = ft_split(argv[1], ' ')))
-		return (0);
+		return (KO);
 	stack->size = count_size(argv[1], ' ');
 	if (!(stack->arr = (int *)malloc(sizeof(int) * (stack->size))))
-		return (0);
+		return (KO);
 	stack->top = -1;
-	i = 0;
+	i = KO;
 	while (i < stack->size)
 	{
 		if (!check_argument(temp[stack->size - i - 1]))
-			return (0);
+			return (KO);
 		(stack->arr)[i] = ft_atoi_checkint(temp[stack->size - i - 1], stack);
 		if (!(stack->check_int))
-			return (0);
+			return (KO);
 		i++;
 		stack->top++;
 	}
 	max_int(stack);
 	min_int(stack);
-	return (1);
+	return (OK);
 }
 
 int		init_argc2(t_stack *stack, int argc,char **argv)
@@ -45,22 +45,22 @@ int		init_argc2(t_stack *stack, int argc,char **argv)
 
 	stack->size = argc - 1;
 	if (!(stack->arr = (int *)malloc(sizeof(int) * (stack->size))))
-		return (0);
+		return (KO);
 	stack->top = -1;
 	i = 0;
 	while (i < stack->size)
 	{
 		if (!check_argument(argv[stack->size - i]))
-			return (0);
+			return (KO);
 		(stack->arr)[i] = ft_atoi_checkint(argv[stack->size - i], stack);
 		if (!(stack->check_int))
-			return (0);
+			return (KO);
 		i++;
 		stack->top++;
 	}
 	max_int(stack);
 	min_int(stack);
-	return (1);
+	return (OK);
 }
 
 int		init_stack_a(t_stack *stack, int argc, char **argv)
@@ -75,17 +75,17 @@ int		init_stack_a(t_stack *stack, int argc, char **argv)
 	if (!error)
 	{
 		ft_free_stack(stack);
-		return (0);
+		return (KO);
 	}
 	error = check_duplicate(stack);
 	if (!error)
 	{
 		ft_free_stack(stack);
-		return (0);
+		return (KO);
 	}
 	stack->ab = A;
 	// sort_arr(stack);
-	return (1);
+	return (OK);
 }
 
 t_stack		*init_stack_b(t_stack *stack_a)
@@ -105,4 +105,23 @@ t_stack		*init_stack_b(t_stack *stack_a)
 	}
 	stack_b->ab = B;
 	return (stack_b);
+}
+
+t_sort		*init_sort(t_stack *stack, t_sort *sort)
+{
+	if (!(sort = (t_sort *)malloc(sizeof(t_sort))))
+		return (KO);
+	if (!(sort->arr = (int *)malloc(sizeof(int) * stack->size)))
+		return (KO);
+	sort->arr_size = stack->size;
+	ft_sort_arr(stack, sort);
+	if (sort->arr_size <= 50)
+		sort->chunk_size = 10;
+	else if (sort->arr_size <= 100)
+		sort->chunk_size = 20;
+	else
+		sort->chunk_size = 47;
+	sort->chunk_count = 1;
+	sort->index_count = 0;
+	return (sort);
 }

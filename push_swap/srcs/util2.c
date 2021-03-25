@@ -6,34 +6,55 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 23:46:09 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/23 23:15:39 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/25 22:58:05 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void		sort5_B_to_A(t_stack *stack_src, t_stack *stack_dest)
+int		ft_cost(t_stack *stack, int index)
 {
-	pab_cost(stack_src, stack_dest);
-	if (stack_src->up_cost >= stack_src->down_cost)
-	{
-		while (stack_src->down_cost-- > 0)
-			operate_rrab(stack_dest);
-		operate_pab(stack_src, stack_dest);
-		while (stack_dest->arr[stack_dest->top] != stack_dest->min)
-			operate_rab(stack_dest);
-	}
+	int		cost;
+
+	if (index >= stack->top / 2)
+		cost = stack->top - index;
 	else
-	{
-		while (stack_src->up_cost-- > 0)
-			operate_rab(stack_dest);
-		operate_pab(stack_src, stack_dest);
-		while (stack_dest->arr[stack_dest->top] != stack_dest->min)
-			operate_rrab(stack_dest);
-	}
+		cost = index + 1;
+	return (cost);
 }
 
-void		sort100(t_stack *stack_a, t_stack *stack_b)
+int		ft_check_cost(t_stack *stack, int start, int end)
 {
-	
+	int		start_cost;
+	int		end_cost;
+
+	start_cost = ft_cost(stack, start);
+	end_cost = ft_cost(stack, end);
+	if (end_cost <= start_cost)
+		return (end_cost);
+	else
+		return (start_cost);
+}
+
+int		ft_check_chunk(t_stack *stack, t_sort *sort, int index)
+{
+	int		i;
+	int		j;
+
+	if (stack->arr[index] == sort->arr[sort->arr_size - 1] || \
+		stack->arr[index] == sort->arr[sort->arr_size - 2] || \
+		stack->arr[index] == sort->arr[sort->arr_size - 3])
+		return (KO);
+	if (sort->chunk_count * sort->chunk_size >= sort->arr_size - 3)
+		i = sort->arr_size - 4;
+	else
+		i = sort->chunk_count * sort->chunk_size;
+	j = (sort->chunk_count - 1) * sort->chunk_size;
+	while (j < i)
+	{
+		if (stack->arr[index] == sort->arr[j])
+			return (OK);
+		j++;
+	}
+	return (KO);
 }

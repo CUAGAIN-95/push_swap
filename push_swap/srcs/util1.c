@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 04:01:46 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/23 23:04:20 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/25 21:25:27 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,27 +44,34 @@ void		min_int(t_stack *stack)
 	stack->min = min;
 }
 
-// void		mid_int(t_stack *stack)
-// {
-	
-// }
-
-void		pab_cost(t_stack *stack_src, t_stack *stack_dest)
+int			ft_sort_arr(t_stack *stack, t_sort *sort)
 {
-
 	int		i;
-	int		push_v;
+	int		j;
+	int		temp;
 
-	stack_src->up_cost = 0;
-	stack_src->down_cost = 0;
-	push_v = stack_src->arr[stack_src->top];
-	i = stack_dest->top;
-	while (push_v > stack_dest->arr[i])
+	i = 0;
+	while (i < sort->arr_size)
 	{
-		stack_src->up_cost++;
-		i--;
+		sort->arr[i] = stack->arr[i];
+		i++;
 	}
-	stack_src->down_cost = i + 1;
+	i = 0;
+	while (i < sort->arr_size)
+	{
+		j = i + 1;
+		while (j < sort->arr_size)
+		{
+			if (sort->arr[i] > sort->arr[j])
+			{
+				temp = sort->arr[i];
+				sort->arr[i] = sort->arr[j];
+				sort->arr[j] = temp;
+			}
+			j++;
+		}
+		i++;
+	}
 }
 
 int			count_size(char *s, char c)

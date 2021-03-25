@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 19:15:09 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/23 23:28:19 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/25 21:44:50 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,13 +61,14 @@ void	sort_case_5(t_stack *stack_a, t_stack *stack_b)
 	}
 }
 
-void	sort_case_100(t_stack *stack_a, t_stack *stack_b)
+int		sort_case_500(t_stack *stack_a, t_stack *stack_b)
 {
-	int		*sort_arr;
-}
+	t_sort	*sort;
 
-void	sort_case_500(t_stack *stack_a, t_stack *stack_b)
-{
-	stack_a->check_int = 1;
-	stack_b->check_int = 1;
+	sort = NULL;
+	if (!init_sort(sort))
+		return (KO);
+	ft_push_swap(stack_a, stack_b, sort);
+	ft_free_sort(sort);
+	return (OK);
 }
