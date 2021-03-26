@@ -6,16 +6,11 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 19:15:09 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/25 21:44:50 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/26 14:12:55 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	sort_case_2(t_stack *stack_a)
-{
-	operate_sab(stack_a);
-}
 
 void	sort_case_3(t_stack *stack_a)
 {
@@ -63,12 +58,21 @@ void	sort_case_5(t_stack *stack_a, t_stack *stack_b)
 
 int		sort_case_500(t_stack *stack_a, t_stack *stack_b)
 {
-	t_sort	*sort;
+	t_sort		*sort;
+	t_target	*target;
 
-	sort = NULL;
-	if (!init_sort(sort))
+	if (!(sort = init_sort(stack_a)))
+	{
+		ft_free_sort(sort);
 		return (KO);
-	ft_push_swap(stack_a, stack_b, sort);
+	}
+	if (!(target = init_target()))
+	{
+		ft_free_sort(sort);
+		return (KO);
+	}
+	ft_ps(stack_a, stack_b, sort, target);
 	ft_free_sort(sort);
+	ft_free_target(target);
 	return (OK);
 }

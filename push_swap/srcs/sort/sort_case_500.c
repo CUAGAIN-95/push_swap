@@ -6,22 +6,30 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:32:35 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/25 23:00:19 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/26 19:22:17 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_AtoB(t_stack *stack_a, t_stack *stack_b, int target)
+void	ft_AtoB(t_stack *stack_src, t_stack *stack_dest, t_target *target)
 {
-	
+	while (target->cost > 0)
+	{
+		if (target->dir == UP)
+			operate_rab(stack_src);
+		else
+			operate_rrab(stack_src);
+		target->cost--;
+	}
+	operate_pab(stack_src, stack_dest);
 }
 
-void	ft_push_swap(t_stack *stack_a, t_stack *stack_b, t_sort *sort)
+void	ft_ps(t_stack *stack_a, t_stack *stack_b, t_sort *sort, \
+						t_target *target)
 {
-	int		start;
-	int		end;
-	int		target;
+	int			start;
+	int			end;
 
 	if (stack_a->top == 2)
 	{
@@ -39,9 +47,9 @@ void	ft_push_swap(t_stack *stack_a, t_stack *stack_b, t_sort *sort)
 	end = stack_a->top;
 	while (end >= 0 && !ft_check_chunk(stack_a, sort, end))
 		end--;
-	target = ft_check_cost(stack_a, start, end);
+	set_target(stack_a, target, start, end);
 	ft_AtoB(stack_a, stack_b, target);
 	sort->index_count++;
-	ft_push_swap(stack_a, stack_b, sort);
-	operate_pab(stack_b, stack_a);
+	ft_ps(stack_a, stack_b, sort, target);
+	sort5_B_to_A(stack_b, stack_a);
 }

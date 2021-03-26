@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 04:01:46 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/25 21:25:27 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:21:46 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		min_int(t_stack *stack)
 	stack->min = min;
 }
 
-int			ft_sort_arr(t_stack *stack, t_sort *sort)
+void		ft_sort_arr(t_stack *stack, t_sort *sort)
 {
 	int		i;
 	int		j;

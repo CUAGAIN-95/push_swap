@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:59:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/25 23:01:22 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/26 13:51:22 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ int		init_stack_a(t_stack *stack, int argc, char **argv)
 		return (KO);
 	}
 	stack->ab = A;
-	// sort_arr(stack);
 	return (OK);
 }
 
@@ -105,23 +104,4 @@ t_stack		*init_stack_b(t_stack *stack_a)
 	}
 	stack_b->ab = B;
 	return (stack_b);
-}
-
-t_sort		*init_sort(t_stack *stack, t_sort *sort)
-{
-	if (!(sort = (t_sort *)malloc(sizeof(t_sort))))
-		return (KO);
-	if (!(sort->arr = (int *)malloc(sizeof(int) * stack->size)))
-		return (KO);
-	sort->arr_size = stack->size;
-	ft_sort_arr(stack, sort);
-	if (sort->arr_size <= 50)
-		sort->chunk_size = 10;
-	else if (sort->arr_size <= 100)
-		sort->chunk_size = 20;
-	else
-		sort->chunk_size = 47;
-	sort->chunk_count = 1;
-	sort->index_count = 0;
-	return (sort);
 }

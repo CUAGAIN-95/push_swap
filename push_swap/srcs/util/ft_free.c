@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 04:08:04 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/25 20:55:37 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:23:02 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,9 @@ void		ft_free_sort(t_sort *sort)
 {
 	free(sort->arr);
 	free(sort);
+}
+
+void		ft_free_target(t_target *target)
+{
+	free(target);
 }

@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 04:35:06 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/23 00:00:04 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/26 13:48:54 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int			ft_atoi_checkint(char *nptr, t_stack *stack)
 		stack->check_int = 0;
 	return ((int)(result * minus));
 }
-
 
 int		check_argument(char *val)
 {

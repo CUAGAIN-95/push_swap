@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:53:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/25 20:19:35 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/26 16:19:50 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		ft_push_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	if (stack_a->size == 2)
-		sort_case_2(stack_a);
+		operate_sab(stack_a);
 	else if (stack_a->size == 3)
 		sort_case_3(stack_a);
 	else if (stack_a->size <= 5)
@@ -35,7 +35,8 @@ int		main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
-	stack_a = (t_stack *)malloc(sizeof(t_stack));
+	if (!(stack_a = (t_stack *)malloc(sizeof(t_stack))))
+		return (ft_print_error());
 	if (!init_stack_a(stack_a, argc, argv))
 		return (ft_print_error());
 	if (ft_checker(stack_a))
@@ -44,7 +45,8 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	stack_b = init_stack_b(stack_a);
-	ft_push_swap(stack_a, stack_b);
+	if (!ft_push_swap(stack_a, stack_b))
+		return (ft_print_error());
 	ft_free_stack_ab(stack_a, stack_b);
 	return (0);
 }
