@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 01:18:11 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/21 20:17:55 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/30 20:03:49 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,6 @@ int		parse_operation(char *line, t_stack *stack_a, t_stack *stack_b)
 	else if (!(ft_strncmp(line, "rrr", ft_strlen(line) + 1)))
 		operate_rrr(stack_a, stack_b);
 	else
-	{
-		ft_free_stack_ab(stack_a, stack_b);
 		return (0);
-	}
 	return (1);
 }
