@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/20 19:15:09 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/26 14:12:55 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:10:44 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,29 +37,11 @@ void	sort_case_3(t_stack *stack_a)
 		operate_rrab(stack_a);
 }
 
-void	sort_case_5(t_stack *stack_a, t_stack *stack_b)
-{
-	while (stack_a->top != 2)
-		operate_pab(stack_a, stack_b);
-	sort_case_3(stack_a);
-	while (stack_b-> top != -1)
-	{
-		if (stack_b->arr[stack_b->top] > stack_a->max)
-		{
-			operate_pab(stack_b, stack_a);
-			operate_rab(stack_a);
-		}
-		else if (stack_b->arr[stack_b->top] < stack_a->min)
-			operate_pab(stack_b, stack_a);
-		else
-			sort5_B_to_A(stack_b, stack_a);	
-	}
-}
-
 int		sort_case_500(t_stack *stack_a, t_stack *stack_b)
 {
 	t_sort		*sort;
 	t_target	*target;
+	int			i;
 
 	if (!(sort = init_sort(stack_a)))
 	{
@@ -72,6 +54,22 @@ int		sort_case_500(t_stack *stack_a, t_stack *stack_b)
 		return (KO);
 	}
 	ft_ps(stack_a, stack_b, sort, target);
+	//오름차순이 될 때 까지 이동
+	
+	i = 0;
+	while (i < stack_a->size && stack_a->arr[i] != stack_a->min)
+		i++;
+	set_target(stack_a, target, i, i);
+	while (target->cost > 0)
+	{
+		if (target->dir == UP)
+			operate_rab(stack_a);
+		else
+			operate_rrab(stack_a);
+		target->cost--;
+	}
+
+	
 	ft_free_sort(sort);
 	ft_free_target(target);
 	return (OK);

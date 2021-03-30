@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:32:35 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/26 19:22:17 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/30 18:25:22 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,23 @@ void	ft_AtoB(t_stack *stack_src, t_stack *stack_dest, t_target *target)
 			operate_rab(stack_src);
 		else
 			operate_rrab(stack_src);
+		target->cost--;
+	}
+	operate_pab(stack_src, stack_dest);
+}
+
+void	ft_BtoA(t_stack *stack_src, t_stack *stack_dest, t_target *target)
+{
+	int		target_int;
+
+	target_int = find_target_int(stack_src, stack_dest);
+	set_target(stack_dest, target, target_int, target_int);
+	while (target->cost > 0)
+	{
+		if (target->dir == UP)
+			operate_rab(stack_dest);
+		else
+			operate_rrab(stack_dest);
 		target->cost--;
 	}
 	operate_pab(stack_src, stack_dest);
@@ -51,5 +68,5 @@ void	ft_ps(t_stack *stack_a, t_stack *stack_b, t_sort *sort, \
 	ft_AtoB(stack_a, stack_b, target);
 	sort->index_count++;
 	ft_ps(stack_a, stack_b, sort, target);
-	sort5_B_to_A(stack_b, stack_a);
+	ft_BtoA(stack_b, stack_a, target);
 }

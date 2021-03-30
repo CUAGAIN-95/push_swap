@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/26 16:27:05 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/30 18:26:25 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,7 @@ void				ft_sort_arr(t_stack *stack, t_sort *sort);
 
 int					ft_cost(t_stack *stack, int index);
 int					ft_check_chunk(t_stack *stack, t_sort *sort, int index);
+int					find_target_int(t_stack *stack_src, t_stack *stack_dest);
 
 /*
 ** ==========================================================================
@@ -182,23 +183,18 @@ int					sort_case_500(t_stack *stack_a, t_stack *stack_b);
 
 /*
 ** ==========================================================================
-**	sort_case_5.c
-** ==========================================================================
-*/
-
-void				pab_cost(t_stack *stack_src, t_stack *stack_dest);
-void				sort5_B_to_A(t_stack *stack_src, t_stack *stack_dest);
-
-/*
-** ==========================================================================
 **	sort_case_500.c
 ** ==========================================================================
 */
 
 void				ft_AtoB(t_stack *stack_a, t_stack *stack_b, \
 								t_target *target);
+void				ft_BtoA(t_stack *stack_src, t_stack *stack_dest, \
+								t_target *target);
 void				ft_ps(t_stack *stack_a, t_stack *stack_b, \
 									t_sort *sort, t_target *target);
+
+
 
 void	print_stack(t_stack *stack_a, t_stack *stack_b);	//test
 #endif

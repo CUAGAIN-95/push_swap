@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:48:58 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/21 20:17:46 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/30 18:17:36 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int		main(int argc, char **argv)
 	}
 	stack_b = init_stack_b(stack_a);
 
-	printf("\nsize : %d\n", stack_a->size);		// print test
-	print_stack(stack_a, stack_b);				// print test
+	// printf("\nsize : %d\n", stack_a->size);		// print test
+	// print_stack(stack_a, stack_b);				// print test
 	
 	count = 0;
 	while (1)
@@ -46,7 +46,7 @@ int		main(int argc, char **argv)
 			ft_free_stack_ab(stack_a, stack_b);
 			return (ft_print_error());
 		}
-		print_stack(stack_a, stack_b);			// print test
+		// print_stack(stack_a, stack_b);			// print test
 		free(line);
 		line = NULL;
 		if (ft_checker(stack_a))

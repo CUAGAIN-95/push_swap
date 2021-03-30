@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:53:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/26 16:19:50 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/30 16:10:33 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int		ft_push_swap(t_stack *stack_a, t_stack *stack_b)
 		operate_sab(stack_a);
 	else if (stack_a->size == 3)
 		sort_case_3(stack_a);
-	else if (stack_a->size <= 5)
-		sort_case_5(stack_a, stack_b);
 	else
 	{
 		if (!sort_case_500(stack_a, stack_b))

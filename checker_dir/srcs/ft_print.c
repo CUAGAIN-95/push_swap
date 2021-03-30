@@ -6,11 +6,11 @@
 /*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:50:40 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/19 16:32:09 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/03/28 17:47:33 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 int		ft_print_error(void)
 {
