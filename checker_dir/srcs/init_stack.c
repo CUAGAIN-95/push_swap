@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:59:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/22 19:12:24 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:07:22 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int		init_argc1(t_stack *stack, char **argv)
+int			init_argc1(t_stack *stack, char **argv)
 {
 	char	**temp;
 	int		i;
@@ -37,7 +37,7 @@ int		init_argc1(t_stack *stack, char **argv)
 	return (1);
 }
 
-int		init_argc2(t_stack *stack, int argc,char **argv)
+int			init_argc2(t_stack *stack, int argc, char **argv)
 {
 	int		i;
 
@@ -59,8 +59,8 @@ int		init_argc2(t_stack *stack, int argc,char **argv)
 	return (1);
 }
 
-int		init_stack_a(t_stack *stack, int argc, char **argv)
-{	
+int			init_stack_a(t_stack *stack, int argc, char **argv)
+{
 	int		error;
 
 	error = 1;

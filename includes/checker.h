@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:11:10 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/23 22:59:31 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:38:52 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 
 # include "../libs/libft/libft.h"
 # include "../libs/gnl/get_next_line.h"
-
-# include <stdio.h>				/////
 
 /*
 ** ==========================================================================
@@ -63,7 +61,7 @@ void					ft_print_result(int result, int count);
 */
 
 int						init_argc1(t_stack *stack, char **argv);
-int						init_argc2(t_stack *stack, int argc,char **argv);
+int						init_argc2(t_stack *stack, int argc, char **argv);
 int						init_stack_a(t_stack *stack, int argc, char **argv);
 t_stack					*init_stack_b(t_stack *stack_a);
 
@@ -104,6 +102,4 @@ void					operate_rab(t_stack *stack);
 void					operate_rr(t_stack *stack_a, t_stack *stack_b);
 void					operate_rrab(t_stack *stack);
 void					operate_rrr(t_stack *stack_a, t_stack *stack_b);
-
-void	print_stack(t_stack *stack_a, t_stack *stack_b);	//test
 #endif

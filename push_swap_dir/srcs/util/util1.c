@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   util1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 04:01:46 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/26 16:21:46 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:34:10 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "push_swap.h"
+#include "push_swap.h"
+
+void		ft_swap(t_sort *sort, int i, int j)
+{
+	int		temp;
+
+	temp = sort->arr[i];
+	sort->arr[i] = sort->arr[j];
+	sort->arr[j] = temp;
+}
 
 void		max_int(t_stack *stack)
 {
@@ -48,7 +57,6 @@ void		ft_sort_arr(t_stack *stack, t_sort *sort)
 {
 	int		i;
 	int		j;
-	int		temp;
 
 	i = 0;
 	while (i < sort->arr_size)
@@ -63,11 +71,7 @@ void		ft_sort_arr(t_stack *stack, t_sort *sort)
 		while (j < sort->arr_size)
 		{
 			if (sort->arr[i] > sort->arr[j])
-			{
-				temp = sort->arr[i];
-				sort->arr[i] = sort->arr[j];
-				sort->arr[j] = temp;
-			}
+				ft_swap(sort, i, j);
 			j++;
 		}
 		i++;

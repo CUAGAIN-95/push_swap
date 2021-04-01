@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_push_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:53:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/30 18:53:33 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:20:35 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		ft_push_swap(t_stack *stack_a, t_stack *stack_b)
 		if (!sort_case_500(stack_a, stack_b))
 			return (KO);
 	}
-	return(OK);
+	return (OK);
 }
 
 int		main(int argc, char **argv)

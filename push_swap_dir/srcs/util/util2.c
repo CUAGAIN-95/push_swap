@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   util2.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 23:46:09 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/30 18:26:08 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:29:34 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,31 +42,31 @@ int		ft_check_chunk(t_stack *stack, t_sort *sort, int index)
 	return (KO);
 }
 
-int		find_target_int(t_stack *stack_src, t_stack *stack_dest)
+int		find_target_int(t_stack *srcs, t_stack *dest)
 {
-	int		push_v;
+	int		v;
 	int		i;
 	int		flag;
 
-	push_v = stack_src->arr[stack_src->top];
+	v = srcs->arr[srcs->top];
 	i = 0;
 	flag = 0;
-	while (i < stack_dest->top)
+	while (i < dest->top)
 	{
-		if (stack_dest->arr[i] > stack_src->arr[stack_src->top])
+		if (dest->arr[i] > srcs->arr[srcs->top])
 			flag = 1;
-		if (flag == 1 && stack_dest->arr[i] < stack_src->arr[stack_src->top])
+		if (flag == 1 && dest->arr[i] < srcs->arr[srcs->top])
 			break ;
 		i++;
 	}
 	i--;
-	if (push_v < stack_dest->min)
+	if (v < dest->min)
 	{
 		i = 0;
-		while (stack_dest->arr[i] != stack_dest->min)
+		while (dest->arr[i] != dest->min)
 			i++;
 	}
-	else if (flag == 1 && i == stack_dest->top - 1 && push_v < stack_dest->arr[stack_dest->top])
-		i = stack_dest->top;
+	else if (flag == 1 && i == dest->top - 1 && v < dest->arr[dest->top])
+		i = dest->top;
 	return (i);
 }

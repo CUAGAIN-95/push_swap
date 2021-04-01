@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   sort_case_500.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/25 19:32:35 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/30 20:10:23 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:22:08 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_AtoB(t_stack *stack_src, t_stack *stack_dest, t_target *target)
+void	ft_atob(t_stack *stack_src, t_stack *stack_dest, t_target *target)
 {
 	while (target->cost > 0)
 	{
@@ -25,7 +25,7 @@ void	ft_AtoB(t_stack *stack_src, t_stack *stack_dest, t_target *target)
 	operate_pab(stack_src, stack_dest);
 }
 
-void	ft_BtoA(t_stack *stack_src, t_stack *stack_dest, t_target *target)
+void	ft_btoa(t_stack *stack_src, t_stack *stack_dest, t_target *target)
 {
 	int		target_int;
 
@@ -65,8 +65,8 @@ void	ft_ps(t_stack *stack_a, t_stack *stack_b, t_sort *sort, \
 	while (end >= 0 && !ft_check_chunk(stack_a, sort, end))
 		end--;
 	set_target(stack_a, target, start, end);
-	ft_AtoB(stack_a, stack_b, target);
+	ft_atob(stack_a, stack_b, target);
 	sort->index_count++;
 	ft_ps(stack_a, stack_b, sort, target);
-	ft_BtoA(stack_b, stack_a, target);
+	ft_btoa(stack_b, stack_a, target);
 }

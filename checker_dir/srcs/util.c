@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   util.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 04:01:46 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/21 20:18:06 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:17:20 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "checker.h"
+#include "checker.h"
 
 int			count_size(char *s, char c)
 {

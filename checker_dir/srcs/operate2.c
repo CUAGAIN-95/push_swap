@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   operate2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 01:18:14 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/21 20:17:58 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:17:37 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	operate_rrab(t_stack *stack)
 		i--;
 	}
 }
+
 void	operate_rrr(t_stack *stack_a, t_stack *stack_b)
 {
 	operate_rrab(stack_a);

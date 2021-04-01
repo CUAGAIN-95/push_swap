@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/30 15:40:54 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/04/01 21:32:13 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,8 +30,7 @@ SRC_FILE		=	main_push_swap.c \
 					util/util1.c util/util2.c \
 					operate/operate1.c operate/operate2.c \
 					sort/sort_case.c \
-					sort/sort_case_500.c\
-					util/test_util.c # test
+					sort/sort_case_500.c
 
 SRCS			=	$(SRC_FILE:%.c=$(SRC_PATH)%.c)
 OBJS			=	$(SRCS:.c=.o)

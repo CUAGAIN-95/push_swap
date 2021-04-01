@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+         #
+#    By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/10 10:45:02 by yeonhlee          #+#    #+#              #
-#    Updated: 2021/03/21 20:22:45 by yeonhlee         ###   ########.fr        #
+#    Updated: 2021/04/01 21:03:25 by yeonhlee         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,8 +29,7 @@ SRC_FILE		=	main_checker.c \
 					init_stack.c \
 					ft_check.c \
 					util.c \
-					operate1.c operate2.c \
-					test_util.c #test용
+					operate1.c operate2.c
 
 SRCS			=	$(SRC_FILE:%.c=$(SRC_PATH)%.c)
 OBJS			=	$(SRCS:.c=.o)

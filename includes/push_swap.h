@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/30 18:26:25 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:38:49 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 **	# include <stdlib.h>
 **	# include <unistd.h>
 */
-
-# include <stdio.h>			//////
 
 # include "../libs/libft/libft.h"
 # include "../libs/gnl/get_next_line.h"
@@ -92,7 +90,7 @@ void				ft_free_sort(t_sort *sort);
 */
 
 int					init_argc1(t_stack *stack, char **argv);
-int					init_argc2(t_stack *stack, int argc,char **argv);
+int					init_argc2(t_stack *stack, int argc, char **argv);
 int					init_stack_a(t_stack *stack, int argc, char **argv);
 t_stack				*init_stack_b(t_stack *stack_a);
 
@@ -187,14 +185,10 @@ int					sort_case_500(t_stack *stack_a, t_stack *stack_b);
 ** ==========================================================================
 */
 
-void				ft_AtoB(t_stack *stack_a, t_stack *stack_b, \
+void				ft_atob(t_stack *stack_a, t_stack *stack_b, \
 								t_target *target);
-void				ft_BtoA(t_stack *stack_src, t_stack *stack_dest, \
+void				ft_btoa(t_stack *stack_src, t_stack *stack_dest, \
 								t_target *target);
 void				ft_ps(t_stack *stack_a, t_stack *stack_b, \
 									t_sort *sort, t_target *target);
-
-
-
-void	print_stack(t_stack *stack_a, t_stack *stack_b);	//test
 #endif

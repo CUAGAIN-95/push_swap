@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_target.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 13:18:21 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/26 16:49:18 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:19:12 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ void		set_target(t_stack *stack, t_target *target, int start, int end)
 	ft_set_cost(stack, target);
 	ft_set_dir(stack, target);
 	target->value = stack->arr[target->index];
-	//printf("target : %d\n", stack->arr[target->index]);
 }
 
 t_target	*init_target(void)

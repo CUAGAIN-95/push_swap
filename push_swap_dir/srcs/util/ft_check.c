@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yeonhlee <yeonhlee@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/19 04:35:06 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/03/26 13:48:54 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/01 21:26:00 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int			ft_atoi_checkint(char *nptr, t_stack *stack)
 	return ((int)(result * minus));
 }
 
-int		check_argument(char *val)
+int			check_argument(char *val)
 {
 	int		i;
 
@@ -56,7 +56,7 @@ int		check_argument(char *val)
 	return (1);
 }
 
-int		check_duplicate(t_stack *stack)
+int			check_duplicate(t_stack *stack)
 {
 	int		count;
 	int		i;
@@ -80,7 +80,7 @@ int		check_duplicate(t_stack *stack)
 	return (1);
 }
 
-int		ft_semi_checker(t_stack *stack)
+int			ft_semi_checker(t_stack *stack)
 {
 	int		i;
 	int		temp;
@@ -97,7 +97,7 @@ int		ft_semi_checker(t_stack *stack)
 	return (OK);
 }
 
-int		ft_checker(t_stack *stack)
+int			ft_checker(t_stack *stack)
 {
 	int		i;
 	int		temp;
