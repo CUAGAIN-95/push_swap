@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 04:01:46 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/01 21:17:20 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:02:51 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,17 @@ void		ft_free_stack(t_stack *stack)
 {
 	free(stack->arr);
 	free(stack);
+}
+
+void		ft_free_temp(char **temp)
+{
+	int		i;
+
+	i = 0;
+	while (temp[i])
+	{
+		free(temp[i]);
+		i++;
+	}
+	free(temp);
 }

@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/21 20:11:10 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/01 21:38:52 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:00:30 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int						ft_checker(t_stack *stack);
 int						count_size(char *s, char c);
 void					ft_free_stack(t_stack *stack);
 void					ft_free_stack_ab(t_stack *stack_a, t_stack *stack_b);
+void					ft_free_temp(char **temp);
 
 /*
 ** ==========================================================================

@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 03:59:01 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/01 21:20:08 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:01:53 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int			init_argc1(t_stack *stack, char **argv)
 		i++;
 		stack->top++;
 	}
+	ft_free_temp(temp);
 	max_int(stack);
 	min_int(stack);
 	return (OK);

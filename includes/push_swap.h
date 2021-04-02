@@ -6,7 +6,7 @@
 /*   By: yeonhlee <yeonhlee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 15:05:49 by yeonhlee          #+#    #+#             */
-/*   Updated: 2021/04/01 21:38:49 by yeonhlee         ###   ########.fr       */
+/*   Updated: 2021/04/02 18:00:20 by yeonhlee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int					ft_checker(t_stack *stack);
 
 /*
 ** ==========================================================================
-**	ft_check.c
+**	ft_free.c
 ** ==========================================================================
 */
 
@@ -138,6 +138,8 @@ void				ft_free_stack(t_stack *stack);
 void				ft_free_stack_ab(t_stack *stack_a, t_stack *stack_b);
 void				ft_free_sort(t_sort *sort);
 void				ft_free_target(t_target *target);
+void				ft_free_temp(char **temp);
+
 /*
 ** ==========================================================================
 **	util.c
@@ -175,8 +177,6 @@ void				operate_rrr(t_stack *stack_a, t_stack *stack_b);
 */
 
 void				sort_case_3(t_stack *stack_a);
-void				sort_case_5(t_stack *stack_a, t_stack *stack_b);
-void				sort_case_100(t_stack *stack_a, t_stack *stack_b);
 int					sort_case_500(t_stack *stack_a, t_stack *stack_b);
 
 /*
